@@ -12,48 +12,57 @@
 {% endblock %}
 
 {% block content %}
-
     <div class="card card-default">
         <div class="card-header">
             <h3 class="card-title">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            {{ title }}
+                <i class="fas fa-search"></i>
+                {{ title }}
             </h3>
         </div>
-
         <div class="card-body">
             <table class="table" id="data">
-              <thead>
-                  {% block columns %}
+                <thead>
+                {% block columns %}
 
-                  {% endblock %}
-              </thead>
+                {% endblock %}
+                </thead>
+                <tbody>
+                {% block rows %}
 
-              <tbody>
-                  {% block rows %}
-
-                  {% endblock %}
-              </tbody>
+                {% endblock %}
+                </tbody>
             </table>
         </div>
-    <div class="card-footer">
-        <button type="button" class="btn btn-primary btn-flat">
-            <i class="fa-solid fa-plus"></i> Nuevo registro
-        </button>
+        <div class="card-footer">
+            <button class="btn btn-primary btn-flat btnTest">
+                <i class="fas fa-plus"></i> Nuevo registro
+            </button>
+        </div>
     </div>
-</div>
-
 {% endblock %}
 
 {% block javascript %}
-
     <script type="application/javascript">
         $(function () {
             $('#data').DataTable({
                 responsive: true,
                 autoWidth: false
             });
+
+            $('.btnTest').on('click', function () {
+                $.ajax({
+                    url: '{% url 'erp:category_list' %}',
+                    type: 'POST',
+                    data: {id: 1},
+                    dataType: 'json'
+                }).done(function (data) {
+                    console.log(data);
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    alert(textStatus+': '+errorThrown);
+                }).always(function (data) {
+
+                });
+            });
         });
     </script>
-
 {% endblock %}
