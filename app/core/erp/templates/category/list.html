@@ -18,9 +18,9 @@
             <a href="{% url 'erp:category_update' c.id %}" class="btn btn-warning btn-xs">
                 <i class="fa-solid fa-pen-to-square"></i>
             </a>
-            <button type="button" class="btn btn-danger btn-xs">
+            <a href="{% url 'erp:category_delete' c.id %}" type="button" class="btn btn-danger btn-xs">
                 <i class="fa-solid fa-trash"></i>
-            </button>
+            </a>
         </td>
     </tr>
     {% endfor %}
