@@ -30,7 +30,7 @@ class CategoryForm(ModelForm):
         }
 
     def save(self, commit=True):
-        data= {}
+        data = {}
         form = super()
         try:
             if form.is_valid():
