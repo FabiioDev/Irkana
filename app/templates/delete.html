@@ -45,15 +45,23 @@
         $('form').on('submit', function (e) {
             e.preventDefault();
             var parameters = $(this).serializeArray();
-            $.ajax({
-                url: window.location.pathname,
-                type: 'POST',
-                data: parameters,
-                dataType: 'json'
-            }).done(function (data) {
-                console.log(data);
-                if (!data.hasOwnProperty('error')) {
-                    location.href = '{{ list_url }}';
+            submit_with_ajax(window.location.pathname, 'Notificación', '¿Estás seguro de eliminar el siguiente registro?', parameters, function () {
+                location.href = '{{ list_url }}';
+            });
+        });
+        /*
+            $('form').on('submit', function (e) {
+                e.preventDefault();
+                var parameters = $(this).serializeArray();
+                $.ajax({
+                    url: window.location.pathname,
+                    type: 'POST',
+                    data: parameters,
+                    dataType: 'json'
+                }).done(function (data) {
+                    console.log(data);
+                    if (!data.hasOwnProperty('error')) {
+                        location.href = '{{ list_url }}';
                     return false;
                 }
                 message_error(data.error);
@@ -63,5 +71,6 @@
 
             })
         })
+        */
     </script>
 {% endblock %}

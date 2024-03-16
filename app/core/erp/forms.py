@@ -41,10 +41,10 @@ class CategoryForm(ModelForm):
             data['error'] = str(e)
         return data
 
-    def clean(self):
-        cleaned = super().clean()
-        if len(cleaned['name']) < 50:
-            raise forms.ValidationError('validacion xd')
-            # self.add_error('name', 'Faltan caracteres')
-        print(cleaned)
-        return cleaned
+    # def clean(self):
+    #     cleaned = super().clean()
+    #     if len(cleaned['name']) < 50:
+    #         raise forms.ValidationError('validacion xd')
+    #         # self.add_error('name', 'Faltan caracteres')
+    #     print(cleaned)
+    #     return cleaned
