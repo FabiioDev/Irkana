@@ -34,8 +34,8 @@ function submit_with_ajax(url, title, content, parameters, callback) {
                         type: 'POST',
                         data: parameters,
                         dataType: 'json',
-                        //processData: false,
-                        //contentType: false,
+                        processData: false,
+                        contentType: false,
                     }).done(function (data) {
                         console.log(data);
                         if (!data.hasOwnProperty('error')) {

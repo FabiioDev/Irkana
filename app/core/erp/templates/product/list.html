@@ -16,7 +16,7 @@
         <tr>
             <td>{{ obj.id }}</td>
             <td>{{ obj.name }}</td>
-            <td>{{ obj.cate }}</td>
+            <td>{{ obj.cate.name }}</td>
             <td class="text-center">
                 {% comment %}{{ obj.image }}{% endcomment %}
                 <img src="{{ obj.get_image }}"

@@ -19,6 +19,9 @@ from django.urls import path, include
 from core.homepage.views import IndexView
 from core.login.views import *
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     # include core.login.urls es el nuevo index
     # path('', IndexView.as_view(), name='login'),
@@ -28,3 +31,5 @@ urlpatterns = [
     path('erp/', include('core.erp.urls')),
     # path('', IndexView.as_view()),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# document_root=settings.MEDIA_ROOT
