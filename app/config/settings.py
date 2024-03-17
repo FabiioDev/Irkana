@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     # "core.homepage.apps.HomepageConfig"
     'core.homepage',
     # "core.login.apps.LoginConfig"
-    'core.login'
+    'core.login',
+    # "core.user.apps.UserConfig"
+    'core.user',
 ]
 
 MIDDLEWARE = [
@@ -144,3 +146,5 @@ LOGIN_URL = '/login/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 MEDIA_URL = '/media/'
+
+AUTH_USER_MODEL = 'user.User'
